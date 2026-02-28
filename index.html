@@ -1,5 +1,6 @@
 <div class="qa-card">
   <h3>CNPJ Alfanumérico</h3>
+<link rel="stylesheet" href="cnpj-alfa.css">
 
   <label>Base (12 caracteres)</label>
   <input id="cnpjBase" maxlength="12" placeholder="12ABC34501DE" />
@@ -15,23 +16,30 @@
   <div id="status" class="qa-status"></div>
 </div>
 
-<style>
-.qa-card{border:1px solid #dcdcdc;padding:16px;border-radius:10px;width:320px;font-family:Arial;background:#fafafa}
-.qa-card h3{margin-top:0;margin-bottom:12px}
-.qa-card label{font-size:12px;color:#555;display:block;margin-top:10px}
-.qa-card input{width:100%;padding:6px 8px;margin-top:4px;border:1px solid #ccc;border-radius:6px;font-size:14px}
-.qa-actions{margin-top:12px;display:flex;gap:8px}
-.qa-actions button{flex:1;padding:8px;border:none;border-radius:6px;cursor:pointer;background:#2d6cdf;color:white;font-weight:bold}
-.qa-actions button:hover{background:#1f4fb3}
-.qa-status{margin-top:12px;font-weight:bold}
-.ok{color:green}.erro{color:red}
-</style>
+<table class="qa-table">
+  <thead>
+    <tr>
+      <th>Char</th>
+      <th>ASCII</th>
+      <th>Cálculo</th>
+      <th>Valor DV</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>7</td><td>55</td><td>55 − 48</td><td>7</td></tr>
+    <tr><td>3</td><td>51</td><td>51 − 48</td><td>3</td></tr>
+    <tr><td>K</td><td>75</td><td>75 − 48</td><td>27</td></tr>
+    <tr><td>9</td><td>57</td><td>57 − 48</td><td>9</td></tr>
+    <tr><td>P</td><td>80</td><td>80 − 48</td><td>32</td></tr>
+    <tr><td>2</td><td>50</td><td>50 − 48</td><td>2</td></tr>
+    <tr><td>L</td><td>76</td><td>76 − 48</td><td>28</td></tr>
+    <tr><td>8</td><td>56</td><td>56 − 48</td><td>8</td></tr>
+    <tr><td>M</td><td>77</td><td>77 − 48</td><td>29</td></tr>
+    <tr><td>4</td><td>52</td><td>52 − 48</td><td>4</td></tr>
+    <tr><td>Q</td><td>81</td><td>81 − 48</td><td>33</td></tr>
+    <tr><td>X</td><td>88</td><td>88 − 48</td><td>40</td></tr>
+  </tbody>
+</table>
 
-<script>
-function _0x2f3a(c){return/[0-9]/.test(c)?parseInt(c,10):c.toUpperCase().charCodeAt(0)-48}
-function _0x8c1d(b){const w=[2,3,4,5,6,7,8,9];let s=0,i=0;for(let x=b.length-1;x>=0;x--){s+=_0x2f3a(b[x])*w[i];i=(i+1)%w.length}const r=s%11;return r===0||r===1?0:11-r}
-function _0x5e6b(b){b=b.replace(/[^0-9A-Za-z]/g,"").toUpperCase();if(b.length!==12)return null;const d1=_0x8c1d(b);const d2=_0x8c1d(b+d1);return b+d1+d2}
-function _0x4d9e(c){c=c.replace(/[^0-9A-Za-z]/g,"").toUpperCase();if(c.length!==14)return c;return c.slice(0,2)+"."+c.slice(2,5)+"."+c.slice(5,8)+"/"+c.slice(8,12)+"-"+c.slice(12)}
-function _0x9a1c(){const b=document.getElementById("cnpjBase").value;const r=_0x5e6b(b);const s=document.getElementById("status");if(!r){s.textContent="Base inválida";s.className="qa-status erro";return}document.getElementById("cnpjFull").value=_0x4d9e(r);s.textContent="DV gerado com sucesso";s.className="qa-status ok"}
-function _0x7b2f(){const i=document.getElementById("cnpjFull").value;const c=i.replace(/[^0-9A-Za-z]/g,"").toUpperCase();const s=document.getElementById("status");if(c.length!==14){s.textContent="CNPJ inválido";s.className="qa-status erro";return}const b=c.slice(0,12);const dv=c.slice(12);const calc=_0x5e6b(b);if(calc&&calc.slice(12)===dv){s.textContent="CNPJ válido ✔";s.className="qa-status ok"}else{s.textContent="CNPJ inválido ✖";s.className="qa-status erro"}}
-</script>
+
+<script src="cnpj-alfa.js"></script>
